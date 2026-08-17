@@ -1,0 +1,164 @@
+{
+  "id": "pilgrim_002",
+  "hajjPermitNumber": "PK-2025-9921674",
+  "fullName": {
+    "ar": "فاطمة بي بي خان",
+    "en": "Fatima Bibi Khan"
+  },
+  "age": 54,
+  "sex": "female",
+  "nationality": {
+    "ar": "باكستان",
+    "en": "Pakistan"
+  },
+  "primaryLanguage": "ur",
+  "bloodType": "A-",
+  "weightKg": 64,
+  "heightCm": 158,
+  "chronicConditions": [
+    {
+      "name": "Epilepsy, focal with secondary generalization",
+      "icd10": "G40.909",
+      "diagnosedYear": 1998,
+      "severity": "moderate",
+      "notes": "Last seizure 14 months ago. Triggered historically by sleep deprivation and heat. On dual AED therapy with good control."
+    },
+    {
+      "name": "Chronic Kidney Disease, Stage 3a",
+      "icd10": "N18.3",
+      "diagnosedYear": 2019,
+      "severity": "moderate",
+      "notes": "eGFR 52 mL/min/1.73m² at last check. Likely secondary to long-term anticonvulsant exposure and recurrent UTIs. Followed by nephrology in Karachi."
+    }
+  ],
+  "medications": [
+    {
+      "generic": "Levetiracetam",
+      "brand": "Keppra",
+      "dose": "500 mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "startedYear": 2010,
+      "indication": "Epilepsy"
+    },
+    {
+      "generic": "Lamotrigine",
+      "brand": "Lamictal",
+      "dose": "100 mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "startedYear": 2014,
+      "indication": "Epilepsy (add-on therapy)"
+    },
+    {
+      "generic": "Furosemide",
+      "brand": "Lasix",
+      "dose": "20 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2020,
+      "indication": "CKD-related fluid retention"
+    }
+  ],
+  "allergies": [
+    {
+      "substance": "Sulfa drugs (sulfonamides)",
+      "type": "drug",
+      "reaction": "Stevens-Johnson syndrome (2003, hospitalized 3 weeks)",
+      "severity": "life-threatening"
+    },
+    {
+      "substance": "Iodinated contrast media",
+      "type": "drug",
+      "reaction": "Severe diffuse rash with facial swelling",
+      "severity": "severe"
+    }
+  ],
+  "surgeries": [
+    {
+      "procedure": "Laparoscopic cholecystectomy",
+      "date": "2012-04-09",
+      "hospital": "Aga Khan University Hospital, Karachi",
+      "notes": "Acute cholecystitis with gallstones. Uncomplicated recovery."
+    }
+  ],
+  "vaccinations": [
+    {
+      "name": "Meningococcal ACWY (Nimenrix)",
+      "date": "2024-02-11",
+      "lotNumber": "A6KX231"
+    },
+    {
+      "name": "COVID-19 (Sinopharm BBIBP-CorV)",
+      "date": "2024-06-20",
+      "lotNumber": "SP2024-7"
+    },
+    {
+      "name": "Hepatitis B booster",
+      "date": "2023-08-15",
+      "lotNumber": "HBV-2023-441"
+    },
+    {
+      "name": "Polio (OPV)",
+      "date": "2024-04-02"
+    }
+  ],
+  "emergencyContacts": [
+    {
+      "name": "Muhammad Asif Khan",
+      "relationship": "Husband",
+      "phone": "+92 300 4471 829",
+      "language": "ur"
+    },
+    {
+      "name": "Zainab Khan",
+      "relationship": "Daughter",
+      "phone": "+92 321 8856 410",
+      "language": "ur"
+    }
+  ],
+  "companion": {
+    "name": "Asif Khan",
+    "nameAr": "آصف خان",
+    "relationship": { "ar": "الزوج", "en": "Husband" },
+    "phoneSA": "+966 54 887 9921",
+    "languages": ["Urdu", "Arabic"]
+  },
+  "clinicalNotes": [
+    {
+      "date": "2025-03-04",
+      "author": "Dr. Sana Iqbal, Neurology — Aga Khan University Hospital",
+      "content": "Pre-Hajj review. EEG (Feb 2025) shows no epileptiform activity. Reviewed seizure precautions in heat: hydrate aggressively, ensure 7+ hours sleep, never miss AED doses. Provided written Urdu instructions for companions on seizure first aid. Renal panel stable — continue current Lasix dose."
+    },
+    {
+      "date": "2024-09-19",
+      "author": "Dr. Tariq Mahmood, Nephrology",
+      "content": "CKD stable. Cautioned re: NSAIDs and contrast. Patient counseled — carries allergy bracelet. eGFR 52, creatinine 1.3. Continue current regimen."
+    }
+  ],
+  "demoSeverity": "red",
+  "demoPresentingComplaint": {
+    "ar": "ضربة شمس حادة مع نوبة صرع في منى. وُجدت فاقدة الوعي بدرجة حرارة 41.2 درجة مئوية.",
+    "en": "Severe heat stroke with post-ictal state at Mina. Found unconscious, core temp 41.2°C."
+  },
+  "demoVitals": {
+    "heartRate": 142,
+    "respRate": 32,
+    "systolicBP": 88,
+    "diastolicBP": 55,
+    "spo2": 91,
+    "temperatureC": 41.2,
+    "glucoseMgDl": 78,
+    "consciousness": "unresponsive",
+    "canWalk": false
+  },
+  "demoLocation": {
+    "lat": 21.4133,
+    "lng": 39.8933,
+    "siteName": {
+      "ar": "مخيمات منى",
+      "en": "Mina Camps"
+    }
+  },
+  "requiredSpecialties": ["emergency", "heat-injury", "neuro"]
+}

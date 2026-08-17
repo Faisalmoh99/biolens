@@ -1,0 +1,189 @@
+{
+  "id": "pilgrim_001",
+  "hajjPermitNumber": "ID-2025-3847291",
+  "fullName": {
+    "ar": "بودي سانتوسو",
+    "en": "Budi Santoso"
+  },
+  "age": 67,
+  "sex": "male",
+  "nationality": {
+    "ar": "إندونيسيا",
+    "en": "Indonesia"
+  },
+  "primaryLanguage": "id",
+  "bloodType": "O+",
+  "weightKg": 78,
+  "heightCm": 168,
+  "chronicConditions": [
+    {
+      "name": "Type 2 Diabetes Mellitus",
+      "icd10": "E11.9",
+      "diagnosedYear": 2008,
+      "severity": "severe",
+      "notes": "HbA1c 9.2% at last check (Feb 2025). Peripheral neuropathy in both feet. Multiple hypoglycemic episodes in last 6 months due to inconsistent meals."
+    },
+    {
+      "name": "Coronary Artery Disease",
+      "icd10": "I25.10",
+      "diagnosedYear": 2015,
+      "severity": "severe",
+      "notes": "Triple-vessel disease. Post-CABG x3 (2017). LVEF 38% on last echo (Jan 2025). NYHA class II."
+    },
+    {
+      "name": "Essential Hypertension",
+      "icd10": "I10",
+      "diagnosedYear": 2005,
+      "severity": "moderate",
+      "notes": "Generally well-controlled on current regimen. Home BP averages 132/80."
+    }
+  ],
+  "medications": [
+    {
+      "generic": "Metformin",
+      "brand": "Glucophage",
+      "dose": "1000 mg",
+      "frequency": "twice daily",
+      "route": "oral",
+      "startedYear": 2008,
+      "indication": "Type 2 diabetes"
+    },
+    {
+      "generic": "Acetylsalicylic acid",
+      "brand": "Aspilets",
+      "dose": "81 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2015,
+      "indication": "Antiplatelet, post-CABG"
+    },
+    {
+      "generic": "Atorvastatin",
+      "brand": "Lipitor",
+      "dose": "40 mg",
+      "frequency": "once nightly",
+      "route": "oral",
+      "startedYear": 2015,
+      "indication": "Hyperlipidemia, secondary prevention"
+    },
+    {
+      "generic": "Bisoprolol",
+      "brand": "Concor",
+      "dose": "5 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2017,
+      "indication": "Heart failure, rate control"
+    },
+    {
+      "generic": "Nitroglycerin",
+      "brand": "Nitromint",
+      "dose": "0.4 mg",
+      "frequency": "PRN for chest pain",
+      "route": "sublingual",
+      "startedYear": 2015,
+      "indication": "Angina"
+    }
+  ],
+  "allergies": [
+    {
+      "substance": "Penicillin",
+      "type": "drug",
+      "reaction": "Anaphylaxis with laryngeal edema",
+      "severity": "life-threatening"
+    },
+    {
+      "substance": "Shellfish",
+      "type": "food",
+      "reaction": "Anaphylaxis, hives, throat swelling",
+      "severity": "severe"
+    }
+  ],
+  "surgeries": [
+    {
+      "procedure": "Coronary Artery Bypass Graft x3 (LIMA-LAD, SVG-RCA, SVG-OM1)",
+      "date": "2017-06-14",
+      "hospital": "Jakarta Heart Center",
+      "notes": "Uncomplicated. Discharged POD 7. Cardiac rehab completed 2017."
+    }
+  ],
+  "vaccinations": [
+    {
+      "name": "Meningococcal ACWY (Menactra)",
+      "date": "2024-01-22",
+      "lotNumber": "U7234AA"
+    },
+    {
+      "name": "Influenza (quadrivalent)",
+      "date": "2024-09-15",
+      "lotNumber": "FLU24-8821"
+    },
+    {
+      "name": "COVID-19 (Pfizer-BioNTech booster)",
+      "date": "2024-08-03",
+      "lotNumber": "FK5421"
+    },
+    {
+      "name": "Polio (IPV)",
+      "date": "2023-11-04"
+    }
+  ],
+  "emergencyContacts": [
+    {
+      "name": "Siti Aminah Santoso",
+      "relationship": "Wife",
+      "phone": "+62 812 4567 8901",
+      "language": "id"
+    },
+    {
+      "name": "Andi Santoso",
+      "relationship": "Son",
+      "phone": "+62 821 9988 4455",
+      "language": "id"
+    }
+  ],
+  "companion": {
+    "name": "Hadi Santoso",
+    "nameAr": "هادي سانتوسو",
+    "relationship": { "ar": "الابن", "en": "Son" },
+    "phoneSA": "+966 50 234 5678",
+    "languages": ["Indonesian", "Arabic (basic)"]
+  },
+  "clinicalNotes": [
+    {
+      "date": "2025-02-18",
+      "author": "Dr. Rina Wijaya, Cardiology — RS Jantung Harapan Kita",
+      "content": "Patient seen for pre-Hajj cardiac clearance. Reports 2 episodes of exertional chest pain in last month, both relieved with SL nitro within 3 min. Stress test deferred — patient declined. Counseled extensively re: heat, exertion, hydration. Advised to carry nitro at all times and seek immediate help if chest pain >5 min."
+    },
+    {
+      "date": "2024-11-30",
+      "author": "Dr. Hadi Pramono, Endocrinology",
+      "content": "HbA1c trending up (8.7 → 9.2). Patient admits skipping evening metformin 2-3x/week. Discussed adherence. No retinopathy on fundoscopy. Sensation reduced in bilateral toes — at risk for ulceration."
+    }
+  ],
+  "demoSeverity": "red",
+  "demoPresentingComplaint": {
+    "ar": "ألم شديد في الصدر وفقدان الوعي عند الجمرات. اشتباه بنوبة قلبية حادة.",
+    "en": "Severe chest pain and collapse at Jamarat. Suspected acute coronary syndrome / STEMI."
+  },
+  "demoVitals": {
+    "heartRate": 38,
+    "respRate": 28,
+    "systolicBP": 78,
+    "diastolicBP": 45,
+    "spo2": 86,
+    "temperatureC": 36.4,
+    "glucoseMgDl": 285,
+    "consciousness": "unresponsive",
+    "canWalk": false
+  },
+  "demoLocation": {
+    "lat": 21.4225,
+    "lng": 39.8731,
+    "siteName": {
+      "ar": "جسر الجمرات",
+      "en": "Jamarat Bridge"
+    }
+  },
+  "requiredSpecialties": ["cardiac"]
+}

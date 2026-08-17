@@ -1,0 +1,9 @@
+{
+  "pilgrims": [
+    { "id": "pilgrim_001", "file": "pilgrim_001.json" },
+    { "id": "pilgrim_002", "file": "pilgrim_002.json" },
+    { "id": "pilgrim_003", "file": "pilgrim_003.json" },
+    { "id": "pilgrim_004", "file": "pilgrim_004.json" },
+    { "id": "pilgrim_005", "file": "pilgrim_005.json" }
+  ]
+}

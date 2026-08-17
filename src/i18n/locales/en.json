@@ -1,0 +1,432 @@
+{
+  "app": {
+    "title": "BioLens",
+    "tagline": "Emergency pilgrim identification system"
+  },
+  "nav": {
+    "home": "Home",
+    "scan": "Iris Scan",
+    "triage": "Mass Triage",
+    "map": "Map",
+    "dashboard": "Dashboard"
+  },
+  "dashboard": {
+    "title": "Operations Dashboard",
+    "subtitle": "Real-time aggregate metrics",
+    "live": "LIVE",
+    "empty": "—",
+    "empty.matches": "No matches yet",
+    "widget": {
+      "total": "Active cases",
+      "activeFor": "Active for: {{time}}",
+      "bySeverity": "By severity",
+      "byNationality": "Patients by nationality",
+      "complaints": "Top presenting complaints",
+      "aiCalls": "Gemini API calls",
+      "aiCalls.latency": "Avg latency: ~2.4s",
+      "avgMatch": "Avg iris match confidence",
+      "avgTriage": "Avg AI triage confidence"
+    }
+  },
+  "map": {
+    "title": "Active Cases",
+    "subtitle": "Mecca holy sites · Real-time view",
+    "openProfile": "Open Profile"
+  },
+  "header": {
+    "sound": {
+      "mute": "Mute",
+      "unmute": "Unmute"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "start": "Start",
+    "scanning": "Scanning",
+    "matched": "Matched",
+    "noMatch": "No match found",
+    "comingSoon": "Coming in next task",
+    "returnHome": "Return Home"
+  },
+  "loading": {
+    "ai": {
+      "0": "Analyzing context…",
+      "1": "Cross-referencing medical history…",
+      "2": "Prioritizing critical facts…"
+    },
+    "triage": {
+      "0": "Applying START protocol…",
+      "1": "Evaluating clinical context…",
+      "2": "Generating action plan…"
+    },
+    "soap": {
+      "0": "Drafting subjective…",
+      "1": "Compiling objective…",
+      "2": "Formulating assessment…",
+      "3": "Generating plan…"
+    },
+    "match": {
+      "0": "Capturing iris pattern…",
+      "1": "Extracting biometric features…",
+      "2": "Matching against database…"
+    },
+    "handoff": {
+      "0": "Compiling vitals…",
+      "1": "Cross-referencing allergies…",
+      "2": "Drafting handoff transmission…",
+      "3": "Finalizing pre-alert…"
+    },
+    "suggestions": {
+      "0": "Reviewing patient history…",
+      "1": "Considering current medications…",
+      "2": "Checking allergy contraindications…",
+      "3": "Ranking by urgency…"
+    }
+  },
+  "toast": {
+    "factCopied": "Fact copied"
+  },
+  "director": {
+    "precache": {
+      "export": "Export precache to JSON",
+      "exported": "Exported. Save to public/data/ai-precache.json and rebuild."
+    }
+  },
+  "mode": {
+    "live": "Live",
+    "demo": "Demo"
+  },
+  "splash": {
+    "tagline": "Hajj Emergency Identification",
+    "begin": "Begin Demo",
+    "hint": "Tap to enter"
+  },
+  "home": {
+    "headline": "Identify any pilgrim in under three seconds.",
+    "tagline": "An iris-based emergency identification system for the holy sites — built for the busiest medical season on Earth.",
+    "cta": {
+      "scan": "Start Iris Scan",
+      "triage": "Triage Group"
+    },
+    "stats": {
+      "services": "Medical services per Hajj season",
+      "countries": "Countries represented",
+      "identification": "Average identification time"
+    }
+  },
+  "pages": {
+    "scan": "Iris Scan",
+    "patient": "Patient Profile",
+    "triage": "Mass Triage",
+    "notFound": "Page not found"
+  },
+  "scan": {
+    "title": "Iris Scan",
+    "subtitle": "Position the pilgrim's eyes within the frame to begin identification.",
+    "initializing": "Initializing model...",
+    "searching": "Searching for iris...",
+    "locked": "Iris locked",
+    "identify": "Identify Patient",
+    "button": {
+      "identify": "Identify Patient"
+    },
+    "stage": {
+      "capturing": "Capturing iris",
+      "extracting": "Extracting features",
+      "matching": "Matching against database"
+    },
+    "success": {
+      "title": "Pilgrim Identified",
+      "similarity": "Match similarity"
+    },
+    "hud": {
+      "acquired": "TARGET ACQUIRED"
+    },
+    "awaiting": "Awaiting iris scan…",
+    "visual": {
+      "capturing": "Capturing iris pattern",
+      "extracting": "Extracting biometric features",
+      "matching": "Matching against 5 enrolled pilgrims"
+    },
+    "failed": {
+      "title": "No match found",
+      "message": "The iris signature did not match any enrolled pilgrim.",
+      "retry": "Try again"
+    },
+    "mode": {
+      "toggle": "Mode",
+      "live": "Live",
+      "demo": "Demo"
+    },
+    "demo": {
+      "target": "Demo target"
+    },
+    "error": {
+      "permission": "Camera access denied",
+      "retry": "Retry"
+    }
+  },
+  "profile": {
+    "back": "Back to Scan",
+    "lastSeen": "Last seen",
+    "nkda": "No known allergies (NKDA)",
+    "topFacts": {
+      "title": "Top 3 Life-Saving Facts — AI Filtered",
+      "loading": "AI analyzing critical context...",
+      "error": "AI analysis unavailable. Showing fallback summary.",
+      "criticality": {
+        "high": "High Criticality",
+        "medium": "Medium Criticality",
+        "low": "Low Criticality"
+      }
+    },
+    "section": {
+      "vitals": "Vitals",
+      "allergies": "Allergies",
+      "medications": "Medications",
+      "conditions": "Chronic Conditions",
+      "surgeries": "Surgeries",
+      "contacts": "Emergency Contacts"
+    },
+    "companion": {
+      "local": "In Mecca · Local contact",
+      "call": "Call companion",
+      "speaks": "Speaks"
+    },
+    "contacts": {
+      "home": "Home country contacts",
+      "noCompanion": "Patient traveled without a registered companion"
+    },
+    "vitals": {
+      "hr": "HR",
+      "rr": "RR",
+      "bp": "BP",
+      "spo2": "SpO2",
+      "temp": "Temp",
+      "glucose": "Glucose",
+      "avpu": "AVPU"
+    },
+    "action": {
+      "readAloud": "Read Top 3 Aloud",
+      "translate": "Translate",
+      "soap": "Generate SOAP",
+      "soapComingSoon": "Coming in Day 3"
+    }
+  },
+  "voice": {
+    "readAloud": "Read Top 3 Aloud",
+    "stop": "Stop Reading",
+    "speaking": "Speaking",
+    "unsupported": "Voice not supported in this browser",
+    "script": {
+      "intro": "Patient {{name}}. Top three life-saving facts.",
+      "fact": "Fact {{number}}: {{title}}. {{content}}. Action: {{action}}.",
+      "ordinal": {
+        "1": "one",
+        "2": "two",
+        "3": "three"
+      }
+    }
+  },
+  "translate": {
+    "to": "Translate to {{lang}}",
+    "translating": "Translating...",
+    "viewOriginal": "View original",
+    "viewTranslation": "View translation",
+    "lang": {
+      "ar": "Arabic",
+      "en": "English"
+    }
+  },
+  "triage": {
+    "title": "Triage Group",
+    "back": "Back",
+    "live": "Live",
+    "refresh": "Refresh",
+    "empty": "No active triage cases",
+    "critical": "Critical",
+    "stable": "Stable",
+    "stats": {
+      "red": "Immediate",
+      "green": "Minor",
+      "total": "Total"
+    },
+    "card": {
+      "aiActions": "AI Immediate Actions",
+      "aiLoading": "AI evaluating...",
+      "aiError": "AI evaluation failed",
+      "adjusted": "Adjusted from START",
+      "confidence": "AI confidence"
+    }
+  },
+  "soap": {
+    "title": "Clinical SOAP Note",
+    "patient": "Patient",
+    "encounter": "Encounter",
+    "interventions": "Interventions Provided",
+    "interventions.placeholder": "Describe interventions performed in the field. Use chips below to insert standard items.",
+    "generate": "Generate SOAP Note",
+    "generating": "Generating SOAP note...",
+    "generating.step1": "Analyzing encounter...",
+    "generating.step2": "Drafting subjective...",
+    "generating.step3": "Compiling objective...",
+    "generating.step4": "Formulating assessment...",
+    "generating.step5": "Generating plan...",
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied",
+    "print": "Print",
+    "close": "Close",
+    "edit": "Edit",
+    "done": "Done",
+    "error": "SOAP generation failed. Please try again.",
+    "section": {
+      "s": "S",
+      "o": "O",
+      "a": "A",
+      "p": "P",
+      "s.label": "Subjective",
+      "o.label": "Objective",
+      "a.label": "Assessment",
+      "p.label": "Plan"
+    },
+    "footer": {
+      "generated": "Generated by BioLens AI",
+      "disclaimer": "This note was AI-assisted. Reviewing clinician must verify before signing."
+    },
+    "chip": {
+      "oxygen": "+ Oxygen 15L NRB",
+      "ivAccess": "+ IV access x2",
+      "aspirin": "+ Aspirin 325mg",
+      "ecg": "+ 12-lead ECG",
+      "atropine": "+ Atropine 1mg IV",
+      "nitro": "+ Nitro 0.4mg SL",
+      "cooling": "+ Cooling measures",
+      "albuterol": "+ Albuterol neb",
+      "dextrose": "+ D50W 25g",
+      "naloxone": "+ Naloxone 2mg IN"
+    }
+  },
+  "interactions": {
+    "button": "Check Drug Interactions",
+    "title": "Drug Interaction Check",
+    "subtitle": "Powered by openFDA + AI",
+    "section": {
+      "current": "Current Medications (from record)",
+      "proposed": "Proposed Interventions",
+      "quickAdd": "Quick add:"
+    },
+    "proposed.placeholder": "Type intervention drug names, comma-separated (e.g. Atropine, Epinephrine)",
+    "check": "Check Interactions",
+    "checking": "Checking interactions...",
+    "recheck": "Recheck",
+    "retry": "Retry",
+    "loading": {
+      "0": "Querying openFDA database…",
+      "1": "Retrieving drug labels…",
+      "2": "Cross-referencing with AI…",
+      "3": "Identifying clinical interactions…"
+    },
+    "empty": "No significant interactions detected",
+    "empty.meds": "No medications on record",
+    "found": "{{count}} significant interaction(s) found",
+    "error": {
+      "fda": "openFDA unavailable — using AI knowledge only",
+      "failed": "Analysis failed — please retry"
+    },
+    "severity": {
+      "contraindicated": "Contraindicated",
+      "major": "Major",
+      "moderate": "Moderate",
+      "minor": "Minor"
+    },
+    "source": {
+      "fda": "openFDA verified",
+      "ai": "AI knowledge"
+    },
+    "field": {
+      "mechanism": "Mechanism",
+      "effect": "Effect",
+      "recommendation": "Recommendation"
+    },
+    "summary": "Analyzed: {{n}} drugs · {{m}} in FDA · {{k}} AI",
+    "chip": {
+      "atropine": "Atropine",
+      "epinephrine": "Epinephrine",
+      "amiodarone": "Amiodarone",
+      "vasopressin": "Vasopressin",
+      "lidocaine": "Lidocaine",
+      "heparin": "Heparin",
+      "morphine": "Morphine",
+      "furosemide": "Furosemide",
+      "naloxone": "Naloxone",
+      "adenosine": "Adenosine",
+      "magnesium": "Magnesium",
+      "calciumGluconate": "Calcium gluconate"
+    },
+    "suggestions": {
+      "title": "AI-Recommended Interventions",
+      "subtitle": "Based on this patient's history, complaint, and triage color",
+      "addAll": "Add all",
+      "add": "Add",
+      "added": "Added",
+      "retry": "Retry",
+      "error": "AI suggestions unavailable — proceed with manual entry",
+      "urgency": {
+        "immediate": "IMMEDIATE",
+        "within-5-min": "WITHIN 5 MIN",
+        "monitor-first": "MONITOR FIRST"
+      }
+    }
+  },
+  "handoff": {
+    "title": "Hospital pre-alert",
+    "titleCritical": "Critical case · recommend hospital handoff",
+    "cta": "View options & send pre-alert",
+    "sent": "Handoff sent",
+    "resend": "Re-send pre-alert",
+    "sentAt": "Sent at {{time}}",
+    "selectHospital": "Select receiving hospital",
+    "summaryTitle": "Pre-arrival handoff summary",
+    "edit": "Edit",
+    "done": "Done",
+    "send": "Send pre-alert to {{hospital}}",
+    "sending": "Transmitting…",
+    "error": "AI summary unavailable — proceed with manual transmission",
+    "retry": "Retry",
+    "unavailable": "Hospital data unavailable",
+    "fields": {
+      "oneLiner": "Lead",
+      "vitals": "Vitals",
+      "allergies": "Allergies",
+      "currentMeds": "Current meds",
+      "criticalNotes": "Critical notes",
+      "eta": "ETA"
+    },
+    "status": {
+      "open": "Open",
+      "limited": "Limited",
+      "diversion": "Diversion"
+    },
+    "specialty": {
+      "cardiac": "Cardiac",
+      "trauma": "Trauma",
+      "neuro": "Neuro",
+      "respiratory": "Respiratory",
+      "obstetrics": "Obstetrics",
+      "emergency": "Emergency",
+      "heat-injury": "Heat injury",
+      "general": "General"
+    },
+    "beds": "{{count}} beds",
+    "etaMin": "ETA {{min}} min",
+    "distanceKm": "{{km}} km",
+    "toast": {
+      "sent": "Pre-alert sent to {{hospital}} · ETA {{min}} min"
+    },
+    "findHospital": "Find hospital"
+  }
+}

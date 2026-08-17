@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  :root.dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 187 80% 30%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 187 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply bg-medical-deep text-foreground antialiased;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[dir="rtl"] body,
+  body:lang(ar) {
+    font-family: Cairo, Tajawal, sans-serif;
+  }
+
+  ::selection {
+    background-color: hsl(187 100% 50% / 0.3);
+    color: hsl(210 40% 98%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(222 47% 5%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(187 80% 30%);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(187 100% 50%);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  body[data-soap-print="active"] [data-soap-printable],
+  body[data-soap-print="active"] [data-soap-printable] * {
+    visibility: visible;
+  }
+  body[data-soap-print="active"] [data-soap-printable] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    background: white;
+    padding: 24px;
+  }
+  body[data-soap-print="active"] [data-soap-printable] .soap-print-no {
+    display: none !important;
+  }
+  body[data-soap-print="active"] [data-soap-printable] h1,
+  body[data-soap-print="active"] [data-soap-printable] h2,
+  body[data-soap-print="active"] [data-soap-printable] h3,
+  body[data-soap-print="active"] [data-soap-printable] p,
+  body[data-soap-print="active"] [data-soap-printable] div,
+  body[data-soap-print="active"] [data-soap-printable] span {
+    color: black !important;
+    background: transparent !important;
+    border-color: #999 !important;
+  }
+}

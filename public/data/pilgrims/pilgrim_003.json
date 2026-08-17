@@ -1,0 +1,174 @@
+{
+  "id": "pilgrim_003",
+  "hajjPermitNumber": "TR-2025-5562108",
+  "fullName": {
+    "ar": "عائشة يلماز",
+    "en": "Ayşe Yılmaz"
+  },
+  "age": 31,
+  "sex": "female",
+  "nationality": {
+    "ar": "تركيا",
+    "en": "Türkiye"
+  },
+  "primaryLanguage": "tr",
+  "bloodType": "B+",
+  "weightKg": 68,
+  "heightCm": 163,
+  "chronicConditions": [
+    {
+      "name": "Severe persistent asthma",
+      "icd10": "J45.50",
+      "diagnosedYear": 1999,
+      "severity": "severe",
+      "notes": "Childhood-onset. 1 ICU admission (2018) for status asthmaticus. Triggers: dust, exertion, cold air. Two ED visits in past year for exacerbations."
+    },
+    {
+      "name": "Pregnancy, intrauterine, 22 weeks gestation",
+      "icd10": "Z34.82",
+      "diagnosedYear": 2025,
+      "severity": "mild",
+      "notes": "G2P1. Estimated due date 2025-09-18. Singleton, confirmed by 20-week anatomy scan. No complications to date. Patient cleared by OB for Hajj travel with hydration/heat precautions."
+    }
+  ],
+  "medications": [
+    {
+      "generic": "Fluticasone/Salmeterol",
+      "brand": "Seretide Diskus",
+      "dose": "250/50 mcg",
+      "frequency": "one inhalation twice daily",
+      "route": "inhalation",
+      "startedYear": 2015,
+      "indication": "Asthma maintenance"
+    },
+    {
+      "generic": "Salbutamol (Albuterol)",
+      "brand": "Ventolin HFA",
+      "dose": "100 mcg per puff",
+      "frequency": "2 puffs PRN for wheeze, max q4h",
+      "route": "inhalation",
+      "startedYear": 1999,
+      "indication": "Asthma rescue"
+    },
+    {
+      "generic": "Prenatal multivitamin with folic acid",
+      "brand": "Materna",
+      "dose": "1 tablet",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2025,
+      "indication": "Pregnancy supplementation"
+    },
+    {
+      "generic": "Ferrous sulfate",
+      "brand": "Ferro Sanol",
+      "dose": "65 mg elemental iron",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2025,
+      "indication": "Iron deficiency anemia in pregnancy"
+    }
+  ],
+  "allergies": [
+    {
+      "substance": "Aspirin / NSAIDs",
+      "type": "drug",
+      "reaction": "Severe bronchospasm within minutes (AERD/Samter's triad suspected)",
+      "severity": "severe"
+    },
+    {
+      "substance": "Dust mites",
+      "type": "environmental",
+      "reaction": "Asthma exacerbation, rhinitis",
+      "severity": "moderate"
+    }
+  ],
+  "surgeries": [
+    {
+      "procedure": "Low transverse cesarean section (failure to progress)",
+      "date": "2021-03-22",
+      "hospital": "Acıbadem Maslak Hospital, Istanbul",
+      "notes": "Healthy female infant 3.2 kg. No complications. Spinal anesthesia."
+    }
+  ],
+  "vaccinations": [
+    {
+      "name": "Meningococcal ACWY (Menveo)",
+      "date": "2024-12-08",
+      "lotNumber": "M21034V"
+    },
+    {
+      "name": "Tdap (administered during current pregnancy at 20 weeks)",
+      "date": "2025-04-10",
+      "lotNumber": "TDP-2025-117"
+    },
+    {
+      "name": "Influenza (inactivated, pregnancy-safe)",
+      "date": "2024-10-22",
+      "lotNumber": "FLU24-2298"
+    },
+    {
+      "name": "COVID-19 (Pfizer-BioNTech)",
+      "date": "2024-05-14",
+      "lotNumber": "FF8810"
+    }
+  ],
+  "emergencyContacts": [
+    {
+      "name": "Mehmet Yılmaz",
+      "relationship": "Husband",
+      "phone": "+90 532 447 3328",
+      "language": "tr"
+    },
+    {
+      "name": "Dr. Elif Karaca (OB/GYN)",
+      "relationship": "Obstetrician",
+      "phone": "+90 212 304 4400",
+      "language": "tr"
+    }
+  ],
+  "companion": {
+    "name": "Mehmet Yılmaz",
+    "nameAr": "محمد يلماز",
+    "relationship": { "ar": "الزوج", "en": "Husband" },
+    "phoneSA": "+966 56 442 1108",
+    "languages": ["Turkish", "English"]
+  },
+  "clinicalNotes": [
+    {
+      "date": "2025-04-18",
+      "author": "Dr. Elif Karaca, OB/GYN — Acıbadem Maslak",
+      "content": "Pre-Hajj pregnancy review at 22 weeks. Fetus appropriate for gestational age. Asthma stable on current regimen. Counseled patient: avoid crowded dusty areas where possible, carry rescue inhaler at all times, seek help immediately if rescue inhaler use exceeds q4h. Cleared for travel with caveats."
+    },
+    {
+      "date": "2024-11-02",
+      "author": "Dr. Burak Demir, Pulmonology",
+      "content": "Asthma well-controlled in recent months. Recent peak flow 380 L/min (personal best 420). Reviewed action plan in Turkish — patient demonstrates correct inhaler technique. AERD strongly suspected — strict NSAID avoidance reinforced."
+    }
+  ],
+  "demoSeverity": "red",
+  "demoPresentingComplaint": {
+    "ar": "نوبة ربو متوسطة بسبب الغبار. استجابت جزئياً للبخاخ. حامل في الأسبوع 22.",
+    "en": "Moderate asthma attack from dust. Partial response to inhaler. 22 weeks pregnant."
+  },
+  "demoVitals": {
+    "heartRate": 108,
+    "respRate": 22,
+    "systolicBP": 132,
+    "diastolicBP": 84,
+    "spo2": 94,
+    "temperatureC": 37.1,
+    "glucoseMgDl": 96,
+    "consciousness": "verbal",
+    "canWalk": true
+  },
+  "demoLocation": {
+    "lat": 21.4225,
+    "lng": 39.8262,
+    "siteName": {
+      "ar": "المسجد الحرام",
+      "en": "Masjid al-Haram"
+    }
+  },
+  "requiredSpecialties": ["respiratory", "obstetrics"]
+}

@@ -1,0 +1,6 @@
+name = "biolens-gemini-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "http://localhost:5173"

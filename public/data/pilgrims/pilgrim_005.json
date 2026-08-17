@@ -1,0 +1,144 @@
+{
+  "id": "pilgrim_005",
+  "hajjPermitNumber": "EG-2025-1140573",
+  "fullName": {
+    "ar": "محمود حسن السيد",
+    "en": "Mahmoud Hassan El-Sayed"
+  },
+  "age": 58,
+  "sex": "male",
+  "nationality": {
+    "ar": "مصر",
+    "en": "Egypt"
+  },
+  "primaryLanguage": "ar",
+  "bloodType": "O-",
+  "weightKg": 84,
+  "heightCm": 174,
+  "chronicConditions": [
+    {
+      "name": "Essential hypertension",
+      "icd10": "I10",
+      "diagnosedYear": 2010,
+      "severity": "moderate",
+      "notes": "Home BP averages 135/82 on current dual therapy. No end-organ damage on most recent assessment. ECG with mild LVH."
+    },
+    {
+      "name": "Mixed hyperlipidemia",
+      "icd10": "E78.5",
+      "diagnosedYear": 2013,
+      "severity": "moderate",
+      "notes": "LDL 98 mg/dL on rosuvastatin 20 mg. Total cholesterol 178. Tolerates statin well — no myalgias, normal LFTs."
+    }
+  ],
+  "medications": [
+    {
+      "generic": "Amlodipine",
+      "brand": "Norvasc",
+      "dose": "10 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2014,
+      "indication": "Hypertension"
+    },
+    {
+      "generic": "Losartan",
+      "brand": "Cozaar",
+      "dose": "50 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2016,
+      "indication": "Hypertension"
+    },
+    {
+      "generic": "Rosuvastatin",
+      "brand": "Crestor",
+      "dose": "20 mg",
+      "frequency": "once nightly",
+      "route": "oral",
+      "startedYear": 2013,
+      "indication": "Hyperlipidemia"
+    }
+  ],
+  "allergies": [],
+  "surgeries": [
+    {
+      "procedure": "Open appendectomy",
+      "date": "1985-07-11",
+      "hospital": "Kasr Al-Ainy Hospital, Cairo",
+      "notes": "Acute appendicitis at age 18. Uncomplicated recovery."
+    }
+  ],
+  "vaccinations": [
+    {
+      "name": "Meningococcal ACWY (Menactra)",
+      "date": "2024-02-26",
+      "lotNumber": "U9087AB"
+    },
+    {
+      "name": "COVID-19 (Pfizer-BioNTech)",
+      "date": "2024-07-10",
+      "lotNumber": "FH7732"
+    },
+    {
+      "name": "Tetanus-diphtheria (Td) booster",
+      "date": "2022-09-04",
+      "lotNumber": "TD22-441"
+    },
+    {
+      "name": "Influenza",
+      "date": "2024-11-08",
+      "lotNumber": "FLU24-9982"
+    }
+  ],
+  "emergencyContacts": [
+    {
+      "name": "Nadia El-Sayed",
+      "relationship": "Wife",
+      "phone": "+20 100 887 4421",
+      "language": "ar"
+    },
+    {
+      "name": "Omar El-Sayed",
+      "relationship": "Son",
+      "phone": "+20 122 334 9988",
+      "language": "ar"
+    }
+  ],
+  "clinicalNotes": [
+    {
+      "date": "2025-04-21",
+      "author": "Dr. Karim Mostafa, Internal Medicine — Cleopatra Hospital, Cairo",
+      "content": "Pre-Hajj review. BP well-controlled at 134/80 in clinic. Counseled patient to bring home BP cuff, check daily during Hajj. Encouraged to seek medic immediately for BP >170/100 or any new chest discomfort. ECG unchanged from baseline."
+    },
+    {
+      "date": "2024-12-12",
+      "author": "Dr. Heba Salah, Cardiology",
+      "content": "Routine annual cardiology follow-up. No symptoms of ischemia, no palpitations. Echo from 2024-06 showed normal LV function, mild LVH consistent with long-standing HTN. Continue current regimen — no change indicated."
+    }
+  ],
+  "demoSeverity": "green",
+  "demoPresentingComplaint": {
+    "ar": "صداع خفيف يطلب فحص ضغط الدم بعد المشي الطويل في الحرارة.",
+    "en": "Mild headache, requesting blood pressure check after extended walking in the heat."
+  },
+  "demoVitals": {
+    "heartRate": 76,
+    "respRate": 16,
+    "systolicBP": 138,
+    "diastolicBP": 86,
+    "spo2": 97,
+    "temperatureC": 36.7,
+    "glucoseMgDl": 110,
+    "consciousness": "alert",
+    "canWalk": true
+  },
+  "demoLocation": {
+    "lat": 21.3547,
+    "lng": 39.9842,
+    "siteName": {
+      "ar": "جبل عرفات",
+      "en": "Mount Arafat"
+    }
+  }
+}

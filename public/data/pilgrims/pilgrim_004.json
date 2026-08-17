@@ -1,0 +1,135 @@
+{
+  "id": "pilgrim_004",
+  "hajjPermitNumber": "NG-2025-7783094",
+  "fullName": {
+    "ar": "عائشة أبو بكر",
+    "en": "Aisha Abubakar"
+  },
+  "age": 42,
+  "sex": "female",
+  "nationality": {
+    "ar": "نيجيريا",
+    "en": "Nigeria"
+  },
+  "primaryLanguage": "ha",
+  "bloodType": "AB+",
+  "weightKg": 71,
+  "heightCm": 165,
+  "chronicConditions": [
+    {
+      "name": "Sickle cell trait (heterozygous HbAS)",
+      "icd10": "D57.3",
+      "diagnosedYear": 1995,
+      "severity": "mild",
+      "notes": "Asymptomatic carrier. Rare exertional hematuria. Increased risk of rhabdomyolysis and splenic infarction at altitude/extreme heat — heat precautions emphasized."
+    },
+    {
+      "name": "Primary hypothyroidism",
+      "icd10": "E03.9",
+      "diagnosedYear": 2017,
+      "severity": "mild",
+      "notes": "Post-Hashimoto's thyroiditis. TSH 2.1 at last check (Jan 2025) — well controlled on levothyroxine."
+    }
+  ],
+  "medications": [
+    {
+      "generic": "Levothyroxine",
+      "brand": "Euthyrox",
+      "dose": "75 mcg",
+      "frequency": "once daily, fasting",
+      "route": "oral",
+      "startedYear": 2017,
+      "indication": "Hypothyroidism"
+    },
+    {
+      "generic": "Folic acid",
+      "brand": "Folvite",
+      "dose": "5 mg",
+      "frequency": "once daily",
+      "route": "oral",
+      "startedYear": 2010,
+      "indication": "Sickle cell trait, RBC support"
+    }
+  ],
+  "allergies": [
+    {
+      "substance": "Codeine",
+      "type": "drug",
+      "reaction": "Nausea and vomiting (no rash, no respiratory involvement)",
+      "severity": "mild"
+    }
+  ],
+  "surgeries": [],
+  "vaccinations": [
+    {
+      "name": "Meningococcal ACWY (Menactra)",
+      "date": "2024-03-19",
+      "lotNumber": "U8911CC"
+    },
+    {
+      "name": "Yellow fever (17D vaccine)",
+      "date": "2024-03-19",
+      "lotNumber": "YF24-3301"
+    },
+    {
+      "name": "Polio (OPV booster)",
+      "date": "2024-04-05",
+      "lotNumber": "OPV-NG-2024-7"
+    },
+    {
+      "name": "COVID-19 (Johnson & Johnson)",
+      "date": "2023-11-12",
+      "lotNumber": "JJ-2023-559"
+    }
+  ],
+  "emergencyContacts": [
+    {
+      "name": "Ibrahim Abubakar",
+      "relationship": "Husband",
+      "phone": "+234 803 4471 920",
+      "language": "ha"
+    },
+    {
+      "name": "Hafsat Abubakar",
+      "relationship": "Sister",
+      "phone": "+234 706 992 4485",
+      "language": "ha"
+    }
+  ],
+  "clinicalNotes": [
+    {
+      "date": "2025-04-02",
+      "author": "Dr. Aminu Bello, Family Medicine — Ahmadu Bello University Teaching Hospital, Zaria",
+      "content": "Pre-Hajj clearance. Patient screened thoroughly given sickle cell trait. Counseled in Hausa re: extreme hydration goals (3-4 L/day in Mecca), avoid strenuous Tawaf during midday heat, recognize warning signs of rhabdomyolysis (dark urine, severe muscle pain). Provided written aftercare card in English and Hausa."
+    },
+    {
+      "date": "2025-01-15",
+      "author": "Dr. Funke Adeyemi, Endocrinology",
+      "content": "Routine thyroid follow-up. TSH 2.1, free T4 normal. Continue 75 mcg dose. No symptoms of over- or under-replacement. Patient reports good adherence."
+    }
+  ],
+  "demoSeverity": "green",
+  "demoPresentingComplaint": {
+    "ar": "دوار خفيف وصداع بعد الطواف. الأعراض تتحسن مع الراحة والسوائل.",
+    "en": "Mild dizziness and headache after completing Tawaf. Symptoms improving with rest and oral fluids."
+  },
+  "demoVitals": {
+    "heartRate": 92,
+    "respRate": 18,
+    "systolicBP": 118,
+    "diastolicBP": 76,
+    "spo2": 98,
+    "temperatureC": 37.0,
+    "glucoseMgDl": 102,
+    "consciousness": "alert",
+    "canWalk": true
+  },
+  "demoLocation": {
+    "lat": 21.4220,
+    "lng": 39.8265,
+    "siteName": {
+      "ar": "المطاف",
+      "en": "Mataaf Area"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "hosp_kamc",
+    "name": { "ar": "مدينة الملك عبدالله الطبية", "en": "King Abdullah Medical City" },
+    "shortName": { "ar": "مدينة الملك عبدالله", "en": "KAMC Mecca" },
+    "specialties": ["cardiac", "trauma", "neuro", "respiratory", "general"],
+    "location": { "lat": 21.4378, "lng": 39.7842 },
+    "bedsAvailable": 14,
+    "edStatus": "open",
+    "phone": "+966 12 514 0000",
+    "verifiedPartner": true
+  },
+  {
+    "id": "hosp_ajyad",
+    "name": { "ar": "مستشفى أجياد للطوارئ", "en": "Ajyad Emergency Hospital" },
+    "shortName": { "ar": "أجياد", "en": "Ajyad" },
+    "specialties": ["emergency", "general"],
+    "location": { "lat": 21.4209, "lng": 39.8245 },
+    "bedsAvailable": 6,
+    "edStatus": "open",
+    "phone": "+966 12 542 1166",
+    "verifiedPartner": true
+  },
+  {
+    "id": "hosp_mina_emergency",
+    "name": { "ar": "مستشفى منى الطارئ", "en": "Mina Emergency Hospital" },
+    "shortName": { "ar": "منى الطارئ", "en": "Mina Emergency" },
+    "specialties": ["emergency", "heat-injury", "neuro", "general"],
+    "location": { "lat": 21.4133, "lng": 39.8933 },
+    "bedsAvailable": 9,
+    "edStatus": "open",
+    "phone": "+966 12 533 2200",
+    "verifiedPartner": true
+  },
+  {
+    "id": "hosp_heera",
+    "name": { "ar": "مستشفى الحيرة العام", "en": "Heera General Hospital" },
+    "shortName": { "ar": "الحيرة", "en": "Heera" },
+    "specialties": ["general", "obstetrics"],
+    "location": { "lat": 21.4480, "lng": 39.8123 },
+    "bedsAvailable": 11,
+    "edStatus": "open",
+    "phone": "+966 12 559 4400",
+    "verifiedPartner": true
+  },
+  {
+    "id": "hosp_king_faisal",
+    "name": { "ar": "مستشفى الملك فيصل", "en": "King Faisal Hospital Mecca" },
+    "shortName": { "ar": "الملك فيصل", "en": "King Faisal" },
+    "specialties": ["cardiac", "obstetrics", "respiratory", "neuro", "general"],
+    "location": { "lat": 21.4015, "lng": 39.7942 },
+    "bedsAvailable": 8,
+    "edStatus": "limited",
+    "phone": "+966 12 553 7000",
+    "verifiedPartner": true
+  }
+]
