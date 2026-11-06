@@ -24,6 +24,8 @@ import { useAppStore } from "@/store/appStore";
 import type { Patient } from "@/types/patient";
 import type { RankedHospital } from "@/types/hospital";
 import type { HandoffSummary } from "@/types/ai";
+import { DEMO_ONLY } from "@/lib/demo";
+import { DemoNotice } from "@/components/ui/demo-notice";
 
 interface HospitalHandoffDialogProps {
   patient: Patient;
@@ -139,6 +141,13 @@ export function HospitalHandoffDialog({
   const existingLog = handoffLog[patient.id];
 
   async function runGenerate() {
+    if (DEMO_ONLY) {
+      // Demo builds serve cached summaries only; never call Gemini.
+      setSummary(null);
+      setError(false);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     setError(false);
     setSummary(null);
@@ -328,6 +337,8 @@ export function HospitalHandoffDialog({
           </div>
 
           {loading && <HandoffLoadingState />}
+
+          {DEMO_ONLY && !summary && !loading && <DemoNotice />}
 
           {error && !loading && (
             <div className="space-y-2 rounded-md border border-triage-red/40 bg-triage-red/10 p-3 text-sm text-triage-red">

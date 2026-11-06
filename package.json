@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:demo": "VITE_GEMINI_API_KEY= VITE_DEMO_ONLY=true tsc -b && VITE_GEMINI_API_KEY= VITE_DEMO_ONLY=true vite build --mode demo",
     "lint": "eslint .",
     "preview": "vite preview"
   },

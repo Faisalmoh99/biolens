@@ -25,6 +25,8 @@ import type {
   LifeSavingFactsResponse,
 } from "@/types/ai";
 import type { Patient } from "@/types/patient";
+import { DEMO_ONLY } from "@/lib/demo";
+import { DemoNotice } from "@/components/ui/demo-notice";
 
 const ICON_MAP: Record<FactIcon, LucideIcon> = {
   alert: AlertTriangle,
@@ -261,9 +263,13 @@ function ErrorFallback({
 
   return (
     <div className="space-y-4">
-      <div className="rounded-md border border-triage-red/40 bg-triage-red/10 p-3 text-sm text-triage-red">
-        {message}
-      </div>
+      {DEMO_ONLY ? (
+        <DemoNotice />
+      ) : (
+        <div className="rounded-md border border-triage-red/40 bg-triage-red/10 p-3 text-sm text-triage-red">
+          {message}
+        </div>
+      )}
       <ul className="space-y-3">
         {fallbackFacts.map((line, i) => (
           <li

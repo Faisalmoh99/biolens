@@ -23,7 +23,11 @@ import { playSoftClick } from "@/lib/sounds";
 import {
   buildInteractionCacheKey,
   checkInteractions,
+  defaultProposedInterventions,
+  extractInterventionsFromActions,
 } from "@/lib/drug-interactions";
+import { DEMO_ONLY } from "@/lib/demo";
+import { DemoNotice } from "@/components/ui/demo-notice";
 import { fetchRecommendedInterventions } from "@/lib/drug-suggestions";
 import { useCyclingMessage } from "@/lib/loading-messages";
 import { useAppStore } from "@/store/appStore";
@@ -136,34 +140,6 @@ const URGENCY_STYLES: Record<
   },
 };
 
-const DRUG_NAME_REGEX =
-  /\b(Atropine|Epinephrine|Adrenaline|Amiodarone|Vasopressin|Lidocaine|Heparin|Morphine|Furosemide|Naloxone|Adenosine|Magnesium|Calcium\s+gluconate|Aspirin|Nitroglycerin|Nitro|Albuterol|Dextrose|D50W|Oxygen)\b/gi;
-
-function extractInterventionsFromActions(actions: string[]): string {
-  if (!actions || actions.length === 0) return "";
-  const found = new Set<string>();
-  for (const action of actions) {
-    const matches = action.match(DRUG_NAME_REGEX);
-    if (matches) {
-      for (const m of matches) {
-        const normalized = m.toLowerCase();
-        if (normalized === "adrenaline") found.add("Epinephrine");
-        else if (normalized === "nitro") found.add("Nitroglycerin");
-        else if (normalized === "d50w") found.add("Dextrose");
-        else {
-          const titled = m
-            .toLowerCase()
-            .split(/\s+/)
-            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-            .join(" ");
-          found.add(titled);
-        }
-      }
-    }
-  }
-  return Array.from(found).join(", ");
-}
-
 function parseInterventions(text: string): string[] {
   return text
     .split(/[,\n;]+/)
@@ -203,11 +179,17 @@ export function DrugInteractionsDialog({
   );
 
   const initialIntervention = useMemo(() => {
-    const fromTriage = extractInterventionsFromActions(
-      triageDecision?.immediateActions ?? [],
-    );
-    return fromTriage;
-  }, [triageDecision]);
+    const actions = triageDecision?.immediateActions ?? [];
+    // Demo builds: read-only, prefilled with exactly the set the precache
+    // was built for (falls back to suggestion generics when triage names no drug).
+    if (DEMO_ONLY) {
+      return defaultProposedInterventions(
+        actions,
+        cachedSuggestions?.interventions,
+      ).join(", ");
+    }
+    return extractInterventionsFromActions(actions).join(", ");
+  }, [triageDecision, cachedSuggestions]);
 
   const [intervention, setIntervention] = useState(initialIntervention);
   const [analysis, setAnalysis] = useState<InteractionAnalysis | null>(null);
@@ -222,6 +204,7 @@ export function DrugInteractionsDialog({
   >(cachedSuggestions?.interventions ?? null);
   const [suggestionsLoading, setSuggestionsLoading] = useState(false);
   const [suggestionsError, setSuggestionsError] = useState<string | null>(null);
+  const [demoMiss, setDemoMiss] = useState(false);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const progressTimerRef = useRef<number | null>(null);
@@ -248,6 +231,7 @@ export function DrugInteractionsDialog({
     setAnalysis(cached ?? null);
     setError(null);
     setFdaUnavailable(false);
+    setDemoMiss(false);
     setProgress(0);
     setStepIdx(0);
     setLoading(false);
@@ -256,6 +240,7 @@ export function DrugInteractionsDialog({
   }, [open, patient.id, initialIntervention]);
 
   const loadSuggestions = async () => {
+    if (DEMO_ONLY) return; // cached suggestions only
     setSuggestionsLoading(true);
     setSuggestionsError(null);
     try {
@@ -361,6 +346,13 @@ export function DrugInteractionsDialog({
     if (interventions.length === 0) return;
 
     const cacheKey = buildInteractionCacheKey(patient.id, interventions);
+    if (DEMO_ONLY) {
+      // Demo builds always serve the cache and never call Gemini/openFDA.
+      const hit = interactionCache[cacheKey];
+      if (hit) setAnalysis(hit);
+      else setDemoMiss(true);
+      return;
+    }
     if (!force && interactionCache[cacheKey]) {
       setAnalysis(interactionCache[cacheKey]);
       return;
@@ -472,7 +464,7 @@ export function DrugInteractionsDialog({
                 {t("interactions.suggestions.subtitle")}
               </p>
             </div>
-            {suggestions && suggestions.length > 0 && (
+            {!DEMO_ONLY && suggestions && suggestions.length > 0 && (
               <Button
                 size="sm"
                 variant="outline"
@@ -497,6 +489,7 @@ export function DrugInteractionsDialog({
           {suggestionsError && !suggestionsLoading && (
             <div className="rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
               {suggestionsError}
+              {!DEMO_ONLY && (
               <Button
                 size="sm"
                 variant="ghost"
@@ -505,8 +498,11 @@ export function DrugInteractionsDialog({
               >
                 {t("interactions.suggestions.retry")}
               </Button>
+              )}
             </div>
           )}
+
+          {DEMO_ONLY && !suggestions && <DemoNotice />}
 
           {!suggestionsLoading && !suggestionsError && suggestions && suggestions.length > 0 && (
             <div className="space-y-2">
@@ -516,6 +512,7 @@ export function DrugInteractionsDialog({
                   suggestion={s}
                   alreadyAdded={intervention.includes(suggestionToken(s))}
                   onAdd={() => appendSuggestion(s)}
+                  readOnly={DEMO_ONLY}
                 />
               ))}
             </div>
@@ -555,6 +552,7 @@ export function DrugInteractionsDialog({
             ref={textareaRef}
             value={intervention}
             onChange={(e) => setIntervention(e.target.value)}
+            readOnly={DEMO_ONLY}
             placeholder={t("interactions.proposed.placeholder")}
             className="min-h-[80px] w-full resize-y rounded-md border border-medical-cyan/30 bg-medical-surface/60 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:border-medical-cyan/60 focus:outline-none"
             disabled={loading}
@@ -569,7 +567,7 @@ export function DrugInteractionsDialog({
                   key={chip.id}
                   type="button"
                   onClick={() => appendChip(chip.generic)}
-                  disabled={loading}
+                  disabled={loading || DEMO_ONLY}
                   className="disabled:opacity-50"
                 >
                   <Badge
@@ -599,7 +597,7 @@ export function DrugInteractionsDialog({
                 >
                   {t("interactions.check")}
                 </Button>
-                {analysis && (
+                {!DEMO_ONLY && analysis && (
                   <Button
                     variant="outline"
                     onClick={handleRecheck}
@@ -612,6 +610,7 @@ export function DrugInteractionsDialog({
                 )}
               </div>
             )}
+            {demoMiss && !loading && <DemoNotice className="mt-3" />}
             {error && !loading && (
               <div className="mt-3 rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
                 {error}
@@ -678,10 +677,12 @@ function SuggestionCard({
   suggestion,
   alreadyAdded,
   onAdd,
+  readOnly = false,
 }: {
   suggestion: RecommendedIntervention;
   alreadyAdded: boolean;
   onAdd: () => void;
+  readOnly?: boolean;
 }) {
   const { t } = useTranslation();
   const styles = URGENCY_STYLES[suggestion.urgency];
@@ -706,6 +707,7 @@ function SuggestionCard({
           </div>
           <p className="text-xs text-foreground/80">{suggestion.rationale}</p>
         </div>
+        {!readOnly && (
         <Button
           size="sm"
           variant="outline"
@@ -718,6 +720,7 @@ function SuggestionCard({
             ? t("interactions.suggestions.added")
             : t("interactions.suggestions.add")}
         </Button>
+        )}
       </div>
     </GlowCard>
   );

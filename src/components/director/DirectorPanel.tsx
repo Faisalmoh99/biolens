@@ -26,6 +26,8 @@ import { fetchAllPatients } from "@/lib/patients";
 import type { Patient, TriageColor } from "@/types/patient";
 import {
   buildPrecache,
+  extendPrecache,
+  loadStaticPrecache,
   clearPrecache,
   getCacheSource,
   hydrateStoresFromPrecache,
@@ -35,6 +37,7 @@ import {
   setCacheSource,
 } from "@/lib/precache";
 import { cn } from "@/lib/utils";
+import { DEMO_ONLY } from "@/lib/demo";
 
 const TRIAGE_DOT: Record<TriageColor, string> = {
   red: "bg-triage-red",
@@ -169,6 +172,41 @@ export function DirectorPanel() {
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       toast.error("Precache failed", { description: msg });
+    } finally {
+      setBuilding(false);
+    }
+  }, [building]);
+
+  // Dev-only: fill missing buckets (handoff, translations, 004/005
+  // interactions) on top of the shipped static precache, keeping all
+  // existing entries. Then use Export to replace public/data/ai-precache.json.
+  const runFillGaps = useCallback(async () => {
+    if (building) return;
+    setBuilding(true);
+    setBuildPct(0);
+    setBuildLabel("Loading base precache…");
+    try {
+      // Resume from a partial v5 run in localStorage if present, else the shipped file.
+      const local = loadPrecache();
+      const base =
+        local && (local.version as number) === 5
+          ? local
+          : await loadStaticPrecache([4, 5]);
+      if (!base) throw new Error("No base precache found");
+      const data = await extendPrecache(base, (pct, label) => {
+        setBuildPct(pct);
+        setBuildLabel(label);
+      });
+      hydrateStoresFromPrecache(data);
+      setCacheSource("memory");
+      setPrecacheAgeMs(0);
+      setPrecacheEntries(precacheEntryCount(data));
+      toast.success("Cache gaps filled", {
+        description: `${precacheEntryCount(data)} entries cached. Export to save.`,
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      toast.error("Fill gaps failed", { description: msg });
     } finally {
       setBuilding(false);
     }
@@ -358,6 +396,7 @@ export function DirectorPanel() {
                 />
               </div>
 
+              {!DEMO_ONLY && (
               <div className="rounded-lg border border-medical-cyan/30 bg-medical-surface/40 p-2">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2 text-xs text-medical-glow">
@@ -373,6 +412,15 @@ export function DirectorPanel() {
                       className="h-7 border-medical-cyan/40 text-medical-glow hover:bg-medical-cyan/10"
                     >
                       {t("director.precache.export")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      disabled={building}
+                      onClick={() => void runFillGaps()}
+                      variant="outline"
+                      className="h-7 border-medical-cyan/40 text-medical-glow hover:bg-medical-cyan/10"
+                    >
+                      Fill gaps
                     </Button>
                     <Button
                       size="sm"
@@ -408,6 +456,7 @@ export function DirectorPanel() {
                   </div>
                 )}
               </div>
+              )}
             </section>
           </div>
         </motion.div>

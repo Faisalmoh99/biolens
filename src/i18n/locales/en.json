@@ -428,5 +428,8 @@
       "sent": "Pre-alert sent to {{hospital}} · ETA {{min}} min"
     },
     "findHospital": "Find hospital"
+  },
+  "demo": {
+    "unavailable": "Demo mode — available in full version"
   }
 }

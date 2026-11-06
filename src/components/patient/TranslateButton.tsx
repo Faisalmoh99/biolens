@@ -7,6 +7,8 @@ import { useAppStore } from "@/store/appStore";
 import { translateFacts, type LangCode } from "@/lib/translation";
 import { playSoftClick } from "@/lib/sounds";
 import type { LifeSavingFactsResponse } from "@/types/ai";
+import { DEMO_ONLY } from "@/lib/demo";
+import { DemoNotice } from "@/components/ui/demo-notice";
 
 export interface TranslateButtonProps {
   patientId: string;
@@ -32,6 +34,7 @@ export function TranslateButton({
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [demoMiss, setDemoMiss] = useState(false);
 
   const otherLang: LangCode = originalLang === "ar" ? "en" : "ar";
   const showingOriginal = displayedLang === originalLang;
@@ -41,6 +44,7 @@ export function TranslateButton({
     playSoftClick();
     if (!originalFacts) return;
     setError(null);
+    setDemoMiss(false);
 
     if (!showingOriginal) {
       onTranslated(originalFacts, originalLang);
@@ -50,6 +54,11 @@ export function TranslateButton({
     const cached = cache[patientId]?.[otherLang];
     if (cached) {
       onTranslated(cached, otherLang);
+      return;
+    }
+
+    if (DEMO_ONLY) {
+      setDemoMiss(true);
       return;
     }
 
@@ -90,6 +99,7 @@ export function TranslateButton({
       {error && (
         <span className="text-xs text-triage-red">{error}</span>
       )}
+      {demoMiss && <DemoNotice />}
     </div>
   );
 }

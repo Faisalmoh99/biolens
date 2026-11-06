@@ -4,12 +4,16 @@ import {
 } from "@google/generative-ai";
 import type { GeminiModel, GeminiError } from "@/types/ai";
 import { useAppStore } from "@/store/appStore";
+import { DEMO_ONLY, DemoModeError } from "./demo";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY as string;
+// In demo builds the key is never read, so it cannot be inlined into the bundle.
+const API_KEY = DEMO_ONLY
+  ? ""
+  : (import.meta.env.VITE_GEMINI_API_KEY as string);
 const USE_WORKER = import.meta.env.VITE_USE_WORKER_PROXY === "true";
 const WORKER_URL = import.meta.env.VITE_WORKER_URL as string;
 
-if (!API_KEY && !USE_WORKER) {
+if (!DEMO_ONLY && !API_KEY && !USE_WORKER) {
   console.warn(
     "[BioLens] VITE_GEMINI_API_KEY missing in .env. AI features will fail.",
   );
@@ -54,6 +58,7 @@ export async function generateStructured<T>(
   responseSchema: ResponseSchema,
   options: GenerateOptions = {},
 ): Promise<T> {
+  if (DEMO_ONLY) throw new DemoModeError();
   const opts = { ...DEFAULT_OPTIONS, ...options };
   let lastError: unknown;
 
@@ -149,6 +154,7 @@ export async function generateText(
   userPrompt: string,
   options: GenerateOptions = {},
 ): Promise<string> {
+  if (DEMO_ONLY) throw new DemoModeError();
   const opts = { ...DEFAULT_OPTIONS, ...options };
   useAppStore.getState().incrementGeminiCallCount();
   const client = getClient();

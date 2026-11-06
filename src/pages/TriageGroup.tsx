@@ -15,6 +15,7 @@ import { fetchAllPatients } from "@/lib/patients";
 import { startProtocol, type TriageResult } from "@/lib/triage";
 import { evaluateTriage } from "@/lib/ai-triage";
 import { playSoftClick } from "@/lib/sounds";
+import { DEMO_ONLY } from "@/lib/demo";
 import { useAppStore } from "@/store/appStore";
 import type { Patient, TriageColor } from "@/types/patient";
 
@@ -77,6 +78,8 @@ export default function TriageGroup() {
   // Fire AI evaluations in parallel
   useEffect(() => {
     if (patients.length === 0) return;
+    // Demo builds never call Gemini: uncached cards keep their START colour.
+    if (DEMO_ONLY) return;
     let cancelled = false;
 
     const initial: Record<string, CardState> = {};
@@ -183,6 +186,7 @@ export default function TriageGroup() {
             <span className="font-mono text-sm tabular-nums text-medical-glow/85">
               {hh}:{mm}:{ss}
             </span>
+            {!DEMO_ONLY && (
             <Button
               variant="outline"
               size="sm"
@@ -198,6 +202,7 @@ export default function TriageGroup() {
                 {t("triage.refresh")}
               </span>
             </Button>
+            )}
           </div>
         </header>
 

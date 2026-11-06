@@ -23,6 +23,7 @@ import { useAppStore } from "@/store/appStore";
 import type { Patient } from "@/types/patient";
 import type { LifeSavingFactsResponse } from "@/types/ai";
 import type { LangCode } from "@/lib/translation";
+import { DEMO_ONLY } from "@/lib/demo";
 
 export default function PatientProfile() {
   const { id } = useParams<{ id: string }>();
@@ -82,9 +83,15 @@ export default function PatientProfile() {
       setFactsError(false);
       return;
     }
-    let cancelled = false;
     setFacts(null);
     setDisplayedFacts(null);
+    if (DEMO_ONLY) {
+      // Demo builds never call Gemini — show the calm demo notice instead.
+      setFactsLoading(false);
+      setFactsError(true);
+      return;
+    }
+    let cancelled = false;
     setFactsError(false);
     setFactsLoading(true);
     fetchTopFacts(patient)

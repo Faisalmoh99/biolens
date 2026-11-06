@@ -17,6 +17,8 @@ import { generateSOAPNote } from "@/lib/soap";
 import { useAppStore } from "@/store/appStore";
 import type { Patient } from "@/types/patient";
 import type { SOAPNote } from "@/types/ai";
+import { DEMO_ONLY } from "@/lib/demo";
+import { DemoNotice } from "@/components/ui/demo-notice";
 
 interface SOAPDialogProps {
   patient: Patient;
@@ -173,6 +175,7 @@ export function SOAPDialog({
   const [draftValue, setDraftValue] = useState("");
   const [cachedInterventionAtGen, setCachedInterventionAtGen] =
     useState<string>("");
+  const [demoMiss, setDemoMiss] = useState(false);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const progressTimerRef = useRef<number | null>(null);
@@ -195,6 +198,7 @@ export function SOAPDialog({
       setCachedInterventionAtGen("");
     }
     setError(null);
+    setDemoMiss(false);
     setEditing(null);
     setProgress(0);
     setStepIdx(0);
@@ -248,6 +252,14 @@ export function SOAPDialog({
   const runGenerate = async (force: boolean) => {
     const trimmed = intervention.trim();
     if (!trimmed) return;
+
+    // Demo builds always serve the cached note and never call Gemini.
+    if (DEMO_ONLY) {
+      const cachedNote = soapCache[patient.id];
+      if (cachedNote) setNote(cachedNote);
+      else setDemoMiss(true);
+      return;
+    }
 
     // Cache hit: same intervention text and a cached note exists
     if (
@@ -353,6 +365,7 @@ export function SOAPDialog({
               ref={textareaRef}
               value={intervention}
               onChange={(e) => setIntervention(e.target.value)}
+              readOnly={DEMO_ONLY}
               placeholder={t("soap.interventions.placeholder")}
               className="min-h-[100px] w-full resize-y rounded-md border border-medical-cyan/30 bg-medical-surface/60 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40 focus:border-medical-cyan/60 focus:outline-none"
               disabled={loading}
@@ -363,7 +376,7 @@ export function SOAPDialog({
                   key={chip.id}
                   type="button"
                   onClick={() => appendChip(chip.text)}
-                  disabled={loading}
+                  disabled={loading || DEMO_ONLY}
                   className="disabled:opacity-50"
                 >
                   <Badge
@@ -395,6 +408,7 @@ export function SOAPDialog({
               {error && !loading && (
                 <p className="mt-2 text-sm text-red-400">{error}</p>
               )}
+              {demoMiss && !loading && <DemoNotice className="mt-2" />}
             </div>
           </div>
 
@@ -464,6 +478,7 @@ export function SOAPDialog({
                 );
               })}
 
+              {!DEMO_ONLY && (
               <div className="soap-print-no flex justify-center pt-1">
                 <button
                   type="button"
@@ -474,6 +489,7 @@ export function SOAPDialog({
                   {t("soap.regenerate")}
                 </button>
               </div>
+              )}
             </div>
           )}
 
