@@ -1,6 +1,6 @@
 # BioLens — Project Reference
 
-A single-document handoff for the entire BioLens codebase. Written against the working tree as of 2026-05-16. Every claim in this document is verifiable from the files cited; where intent and reality diverged, a note is left in the section.
+A single-document handoff for the entire BioLens codebase. Every claim in this document is verifiable from the files cited; where intent and reality diverged, a note is left in the section.
 
 ---
 
@@ -8,11 +8,11 @@ A single-document handoff for the entire BioLens codebase. Written against the w
 
 - **Name:** BioLens
 - **Tagline (from `src/i18n/locales/en.json`):** "Emergency pilgrim identification system" (`app.tagline`). The Splash screen also surfaces `splash.tagline` = "Hajj Emergency Identification" and the README subtitle "Iris-based emergency identification for the busiest medical season on Earth."
-- **Project type:** Hackathon demo prototype (not production software).
+- **Project type:** Demo prototype (not production software).
 - **Build timeline:** 3 days / 72 hours.
 - **Target user:** Field paramedics / emergency medical responders working the Hajj season in Saudi Arabia.
 - **The problem it solves:** During Hajj the Saudi medical system delivers over 147,000 medical services to pilgrims from 180+ countries. Many present unconscious, without identification, speaking a language the responder does not share. BioLens proposes iris biometrics + AI to identify the patient in under 3 seconds, surface the three most life-saving facts (allergies, medications, conditions), and produce a clean clinical handoff.
-- **Hackathon context:** Built for the **Tuwaiq Academy Hackathon — May 2026** (`README.md`). Demo-focused, single-machine, single-presenter. Not intended for clinical use.
+- **Context:** Demo-focused, single-machine, single-presenter. Not intended for clinical use.
 
 ---
 
@@ -316,7 +316,7 @@ Ten core features, numbered below.
 
 - **What it does:** Boot-style intro at `/`. Animated big iris (two counter-rotating dashed rings + a radial-gradient iris + a breathing pupil + a particle field), the word "BioLens" types in character by character, an audio "boot sweep" (sine 200→800Hz over 1.5s) plays once, then a CTA "Begin Demo" reveals at ~2.5s with a shimmering shine. Pressing it triggers a 1.3s exit sequence (a horizontal scan sweep across screen + radial darken + scale/blur of content) before navigating to `/home`.
 - **How it works:** `src/pages/Splash.tsx`. Particle field uses 36 randomly-seeded vertical-rise particles. The exit sweep is rendered with two stacked `AnimatePresence` motion elements. Enter/Space triggers Begin Demo when the CTA is visible.
-- **Why we added this:** Hackathon judges decide on impressions in seconds. Splash sets the "cinematic medical AI" tone before the rest of the app gets the chance to.
+- **Why we added this:** First impressions form in seconds. Splash sets the "cinematic medical AI" tone before the rest of the app gets the chance to.
 - **Key files:** `src/pages/Splash.tsx`.
 
 #### 2. Scan Cinematic Polish
@@ -1173,7 +1173,7 @@ A frank list.
 - **localStorage size.** Enrollment (5 vectors × 1024 floats × ~8 chars each in JSON) is ~40KB; precache plus openFDA cache can push the total toward ~2MB. Some browsers cap localStorage at 5MB per origin; large precache rebuilds could hit it.
 - **All patient JSONs ship to the client.** `_index.json` plus the 5 records all live under `public/data/pilgrims/` and are served as-is. There is no pagination, no on-demand fetch from a backend, and no privacy boundary.
 - **Voice quality depends on the host browser.** Browsers ship different `SpeechSynthesisVoice` sets. Safari's `ar-SA` voice is reasonable; Chromium on Linux often has no Arabic voice at all. `findVoice` falls back to a same-prefix voice but the result is unpredictable cross-platform.
-- **`lucide-react` v1.16.0 in `package.json`.** This version range is unusual (Lucide is normally ^0.x); icons resolve at runtime so it works in this environment, but the version line in `package.json` is worth verifying before pinning for production. Verified against `package.json` on 2026-05-17.
+- **`lucide-react` v1.16.0 in `package.json`.** This version range is unusual (Lucide is normally ^0.x); icons resolve at runtime so it works in this environment, but the version line in `package.json` is worth verifying before pinning for production.
 - **Speaker-notes vs. data drift.** `src/lib/speaker-notes.ts` lists `Aisha` as `pilgrim_002` (sickle cell trait) and `Fatima` as `pilgrim_004` (severe asthma + ICU). The actual JSONs assign Fatima → pilgrim_002 (epilepsy + post-ictal heat stroke), Ayşe → pilgrim_003 (asthma + pregnancy), and Aisha → pilgrim_004 (sickle cell). The data is the ground truth; the speaker notes have not been rewritten to match the most recent JSON content.
 - **`TriageColor` is defined three times.** In `src/types/patient.ts`, `src/types/ai.ts`, and `src/types/triage.ts`. They are structurally identical but the duplication exists.
 - **`TriageResult` and `translateText` are declared but unused.** Type-only and API-only deadwood respectively.
@@ -1239,11 +1239,9 @@ This is a demo; here is what's intentionally missing.
 
 ## 19. Credits & Context
 
-- **Hackathon:** Tuwaiq Academy Hackathon · May 2026 (`README.md`).
-- **Team:** `[FILL]`
 - **Build window:** 72 hours (3 days).
 - **AI assistance:** The codebase was scaffolded with help from Claude (Anthropic). All medical content and pilgrim records are fictional and authored for demo purposes only.
 
 ---
 
-*Last regenerated: 2026-05-16. If the codebase has moved, treat this document as historical reference and verify against the current files cited.*
+*If the codebase has moved, treat this document as historical reference and verify against the current files cited.*

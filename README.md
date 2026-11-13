@@ -2,7 +2,7 @@
 
 Iris-based emergency identification for the busiest medical season on Earth.
 
-BioLens is a hackathon prototype built for the Hajj season, when over 147,000
+BioLens is a prototype built for the Hajj season, when over 147,000
 medical services are delivered to pilgrims from more than 180 countries. Many
 arrive unconscious, without ID, speaking a language the medic doesn't share.
 BioLens identifies them from an iris scan in under three seconds, surfaces the
@@ -70,6 +70,3 @@ rehydrated automatically on every page load (within 24 hours). If a live AI
 call fails during the demo, a small banner surfaces but cached responses keep
 playing.
 
-## Credits
-
-Built for the Tuwaiq Academy Hackathon · May 2026.

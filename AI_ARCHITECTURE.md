@@ -1,6 +1,6 @@
 # BioLens — AI Architecture
 
-A conceptual / educational companion to `PROJECT.md`. Written against the working tree as of 2026-05-17.
+A conceptual / educational companion to `PROJECT.md`.
 
 ---
 
@@ -84,10 +84,10 @@ This is not a workaround. It is the dominant pattern in modern AI engineering. A
 
 ## 4. Why We Didn't Train Our Own CNN in Python
 
-If you are new to AI engineering you may be tempted to think "real" AI means training a custom convolutional neural network on iris images. Let's be frank about why that would have been the wrong call here, even ignoring the 72-hour hackathon clock.
+If you are new to AI engineering you may be tempted to think "real" AI means training a custom convolutional neural network on iris images. Let's be frank about why that would have been the wrong call here, even ignoring the short build timeline.
 
 - **Data.** A serious iris classifier needs on the order of 50,000 labeled iris images. We have zero. The CASIA-IrisV4 dataset is gated and the few open alternatives are too small and too uniform to generalize.
-- **Compute.** Training even a small CNN from scratch is GPU-hours of work. The hackathon environment is a laptop.
+- **Compute.** Training even a small CNN from scratch is GPU-hours of work. The prototype is built and run on a single laptop.
 - **Expertise.** Architecture choice, loss function, batch size, learning-rate schedule, train/val split, augmentation strategy — every one of those is its own rabbit hole.
 - **Time.** Realistically 2–4 weeks of full-time work to do this competently. Integrating MediaPipe took roughly three minutes (`src/lib/mediapipe.ts` is 96 lines).
 - **Quality.** MediaPipe's face/iris landmarker was trained by Google on tens of millions of faces with industrial-grade labeling. Our hypothetical custom model would almost certainly be worse, not better.
