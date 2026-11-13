@@ -44,7 +44,7 @@ Also included: a Mecca cases map with a severity heatmap, an operations dashboar
 ## How it works
 
 ```mermaid
-flowchart LR
+flowchart TB
     A[Camera] --> B[MediaPipe<br/>Face Landmarker<br/>iris detection]
     B --> C[Iris crop 224×224]
     C --> D[MobileNet v2<br/>1024-d embedding]
