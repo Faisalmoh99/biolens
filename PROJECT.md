@@ -9,7 +9,6 @@ A single-document handoff for the entire BioLens codebase. Every claim in this d
 - **Name:** BioLens
 - **Tagline (from `src/i18n/locales/en.json`):** "Emergency pilgrim identification system" (`app.tagline`). The Splash screen also surfaces `splash.tagline` = "Hajj Emergency Identification" and the README subtitle "Iris-based emergency identification for the busiest medical season on Earth."
 - **Project type:** Demo prototype (not production software).
-- **Build timeline:** 3 days / 72 hours.
 - **Target user:** Field paramedics / emergency medical responders working the Hajj season in Saudi Arabia.
 - **The problem it solves:** During Hajj the Saudi medical system delivers over 147,000 medical services to pilgrims from 180+ countries. Many present unconscious, without identification, speaking a language the responder does not share. BioLens proposes iris biometrics + AI to identify the patient in under 3 seconds, surface the three most life-saving facts (allergies, medications, conditions), and produce a clean clinical handoff.
 - **Context:** Demo-focused, single-machine, single-presenter. Not intended for clinical use.
@@ -1239,7 +1238,6 @@ This is a demo; here is what's intentionally missing.
 
 ## 19. Credits & Context
 
-- **Build window:** 72 hours (3 days).
 - **AI assistance:** The codebase was scaffolded with help from Claude (Anthropic). All medical content and pilgrim records are fictional and authored for demo purposes only.
 
 ---
